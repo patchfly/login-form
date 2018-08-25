@@ -1,0 +1,14 @@
+// colors
+$white: #fff;
+$black: #000;
+$blue: #2c3e50;
+$light-blue: #3498db;
+
+$gradient-start: $blue;
+$gradient-stop: $light-blue;
+
+@mixin app-gradient() {
+  background: linear-gradient(to right bottom, $gradient-start, $gradient-stop);
+}
+
+$spacer: 16px;

@@ -1,0 +1,95 @@
+.login-view {
+  @include app-gradient();
+  height: 100%;
+}
+
+.login-form-container {
+  position: relative;
+  height: 100%;
+}
+
+.login-form-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 400px;
+  border: 1px solid $white;
+  border-radius: 8px;
+}
+
+.login-form {
+  position: relative;
+  padding: 7 * $spacer 2 * $spacer $spacer;
+}
+
+.login-form-input {
+  border-radius: 0;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  border-width: 0;
+  padding: 0 $spacer;
+  height: 3rem;
+  line-height: 3rem;
+  color: $white;
+  background: $blue;
+  margin-bottom: 2.5 * $spacer;
+
+  &::-webkit-input-placeholder {
+    color: $white;
+  }
+
+  &::-moz-placeholder {
+    color: $white;
+  }
+
+  &:-ms-input-placeholder {
+    color: $white;
+  }
+  &:-moz-placeholder {
+    color: $white;
+  }
+}
+
+.login-form-title {
+  position: absolute;
+  left: 50%;
+  top: -$spacer;
+  transform: translateX(-50%);
+  padding: $spacer;
+  margin: 0;
+  min-width: 150px;
+  text-align: center;
+
+  background-color: $light-blue;
+  text-transform: uppercase;
+  color: $white;
+  font-size: 24px;
+}
+
+.login-btn {
+  display: inline-block;
+  box-sizing: border-box;
+  padding: $spacer 1.5 * $spacer;
+  border-width: 0;
+  border-radius: 0;
+  text-align: center;
+  width: 100%;
+  margin: $spacer 0 3 * $spacer;
+  color: $white;
+  cursor: pointer;
+  text-transform: uppercase;
+  background-color: $light-blue;
+
+  &:hover {
+    background-color: darken($light-blue, 10%);
+  }
+
+  &:focus,
+  &:active,
+  &:hover {
+    text-decoration: none;
+    outline: none;
+  }
+}
