@@ -1,0 +1,50 @@
+.form-input-group {
+  margin-bottom: $spacer;
+}
+
+.form-input {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 3rem;
+  line-height: 3rem;
+  padding: 0 $spacer;
+  border-radius: 0;
+  border-width: 0;
+  color: $white;
+  background: $blue;
+  font-size: $font-size-normal;
+  margin-bottom: .5 * $spacer;
+
+  &::-webkit-input-placeholder {
+    color: $white;
+  }
+
+  &::-moz-placeholder {
+    color: $white;
+  }
+
+  &:-ms-input-placeholder {
+    color: $white;
+  }
+
+  &:-moz-placeholder {
+    color: $white;
+  }
+}
+
+.form-input-group-error {
+  .form-input {
+    border: 1px solid $error-color;
+  }
+}
+
+.form-input-error,
+.form-error {
+  color: $error-color;
+  height: 2 * $spacer;
+}
+
+.form-error {
+  text-align: center;
+}

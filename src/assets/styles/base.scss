@@ -1,4 +1,5 @@
-@import "./variables";
-@import "./general";
+@import "variables";
+@import "general";
 
-@import "modules/auth/components/loginForm.scss";
+@import "common/forms/components/_input.scss";
+@import "modules/auth/components/_loginForm.scss";

@@ -1,8 +1,11 @@
 // colors
 $white: #fff;
 $black: #000;
+$red: #7d1f1f;
 $blue: #2c3e50;
 $light-blue: #3498db;
+
+$error-color: $red;
 
 $gradient-start: $blue;
 $gradient-stop: $light-blue;
@@ -11,4 +14,21 @@ $gradient-stop: $light-blue;
   background: linear-gradient(to right bottom, $gradient-start, $gradient-stop);
 }
 
-$spacer: 16px;
+// sizes
+$spacer: 1rem;
+
+// font sizes
+$font-size-normal: $spacer;
+$font-size-big: 1.5 * $spacer;
+
+// font weights
+$font-weight-light: 100;
+$font-weight-normal: 400;
+$font-weight-bold: 600;
+
+// breakpoints
+$xs: 576px;
+$sm: 768px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;

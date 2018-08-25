@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
+import { validateEmail, validatePassword, required } from 'common/forms/utils/fieldsValidation';
+import Input from 'common/forms/components/Input';
 import { login } from '../redux/actions';
 
 const LoginForm = ({ handleSubmit, submitFcn = login, error }) => {
@@ -10,15 +12,16 @@ const LoginForm = ({ handleSubmit, submitFcn = login, error }) => {
       <div className="login-form-box">
         <form className="login-form" onSubmit={handleSubmit(submitFcn)}>
           <h1 className="login-form-title">Sign in</h1>
-          <Field name="email" component="input" type="email" placeholder="E-mail" className="login-form-input" />
-          <Field name="password" component="input" type="password" placeholder="Password"
-            className="login-form-input" />
+          <Field name="email" component={Input} type="email" placeholder="Email"
+            validate={[required, validateEmail]} />
+          <Field name="password" component={Input} type="password" placeholder="Password"
+            validate={[required, validatePassword]}/>
+          <div className="form-error">
+            {error}
+          </div>
           <button className="login-btn" type="submit">
             Login
           </button>
-          <div className="login-form-error">
-            {error}
-          </div>
         </form>
       </div>
     </div>
