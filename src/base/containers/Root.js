@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import { appUrls } from '../consts';
-import HomeView from '../../modules/dashboard/containers/HomeView';
-import LoginView from '../../modules/auth/containers/LoginView';
+import HomeView from 'modules/dashboard/containers/HomeView';
+import LoginView from 'modules/auth/containers/LoginView';
+
+import 'assets/styles/base.scss';
 
 class Root extends Component {
   render() {
