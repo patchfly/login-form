@@ -7,7 +7,7 @@ import Input from 'common/forms/components/Input';
 import Checkbox from 'common/forms/components/Checkbox';
 import { login } from '../redux/actions';
 
-const LoginForm = ({ handleSubmit, submitFcn = login, error }) => {
+export const LoginForm = ({ handleSubmit, submitFcn = login, error }) => {
   return (
     <div className="login-form-container">
       <div className="login-form-box">
@@ -18,7 +18,7 @@ const LoginForm = ({ handleSubmit, submitFcn = login, error }) => {
           <Field name="password" component={Input} type="password" placeholder="Password"
             validate={[required, validatePassword]}/>
           <div className="form-error">
-            {error}
+            {error && <span className="form-error-text">{error}</span>}
           </div>
           <Field name="remember" component={Checkbox} label="Remember me" />
           <button className="app-btn login-btn" type="submit">

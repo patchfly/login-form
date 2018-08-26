@@ -3,25 +3,6 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 export class Input extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      focus: false
-    };
-  }
-
-  focus = () => {
-    this.setState({
-      focus: true
-    });
-  }
-
-  blur = () => {
-    this.setState({
-      focus: false
-    });
-  }
-
   render () {
     const { meta: { touched, error }, input, type, ...rest } = this.props;
 
@@ -33,21 +14,9 @@ export class Input extends React.Component {
           className="form-input"
           id={input.name}
           {...input}
-          onFocus={(e) => {
-            this.focus();
-            if (input.onFocus) {
-              input.onFocus(e);
-            }
-          }}
-          onBlur={(e) => {
-            this.blur();
-            if (input.onBlur) {
-              input.onBlur(e);
-            }
-          }}
           {...rest} />
         <div className="form-input-error">
-          {touched && error}
+          {touched && error && <span className="form-input-error-text">{error}</span>}
         </div>
       </div>
     );
