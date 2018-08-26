@@ -9,3 +9,31 @@ body {
   font-size: $spacer;
   font-weight: $font-weight-normal;
 }
+
+.app-btn {
+  display: inline-block;
+  box-sizing: border-box;
+  padding: $spacer 1.5 * $spacer;
+  border-width: 0;
+  border-radius: 0;
+  text-align: center;
+  width: 100%;
+  cursor: pointer;
+
+  color: $white;
+  text-transform: uppercase;
+  background-color: $light-blue;
+  font-size: $font-size-normal;
+
+  &:hover {
+    background-color: darken($light-blue, 5%);
+    box-shadow: 0 1px 5px rgba($black, 0.2);
+  }
+
+  &:focus,
+  &:active,
+  &:hover {
+    text-decoration: none;
+    outline: none;
+  }
+}

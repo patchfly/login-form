@@ -1,6 +1,7 @@
-import { take, put, all } from 'redux-saga/effects';
-import { login } from './actions';
+import { take, put, call, all } from 'redux-saga/effects';
+import { login, LOGOUT, setToken } from './actions';
 import { SubmissionError } from 'redux-form';
+import Api from 'base/utils';
 
 export function* loginFlow() {
   while (true) {
@@ -10,12 +11,26 @@ export function* loginFlow() {
       yield put(login.failure(error));
     } else {
       yield put(login.success());
+      const token = 'token';
+      yield call(Api.setCookie, 'token', token, {
+        path: '/',
+        expires: new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000)
+      });
+      yield put(setToken({token: token}));
     }
+  }
+}
+
+export function* logoutFlow() {
+  while (true) {
+    yield take([LOGOUT, login.FAILURE]);
+    yield call(Api.delCookie, 'token');
   }
 }
 
 export function* authSaga() {
   yield all([
-    loginFlow()
+    loginFlow(),
+    logoutFlow()
   ]);
 }

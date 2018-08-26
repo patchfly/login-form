@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import LogoutPanel from '../components/LogoutPanel';
 
 class HomeView extends Component {
   render() {
     return (
-      <div>
-        home view
+      <div className="home-view-container">
+        <LogoutPanel />
       </div>
     );
   }

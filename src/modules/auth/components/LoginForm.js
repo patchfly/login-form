@@ -19,7 +19,7 @@ const LoginForm = ({ handleSubmit, submitFcn = login, error }) => {
           <div className="form-error">
             {error}
           </div>
-          <button className="login-btn" type="submit">
+          <button className="app-btn login-btn" type="submit">
             Login
           </button>
         </form>
