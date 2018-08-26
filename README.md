@@ -1,9 +1,9 @@
-#Login form example
+# Login form example
 
 Example login functionality created with [react](https://reactjs.org/), [react-redux](https://github.com/reduxjs/react-redux), [redux-saga](https://github.com/redux-saga/redux-saga), [redx-form](https://redux-form.com).<br>
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-##Getting started
+## Getting started
 
 To get the app running locally:
 
