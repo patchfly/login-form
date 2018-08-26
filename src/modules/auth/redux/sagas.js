@@ -2,16 +2,16 @@ import { take, put, call, all } from 'redux-saga/effects';
 import { login, LOGOUT, setToken } from './actions';
 import { SubmissionError } from 'redux-form';
 import Api from 'base/utils';
+import authService from '../authService';
 
 export function* loginFlow() {
   while (true) {
     const { payload: { email, password, remember }} = yield take(login.REQUEST);
-    if (email !== 'test@test.pl' || password !== 'Password1') {
-      const error = new SubmissionError({_error: 'Invalid email or password'});
-      yield put(login.failure(error));
-    } else {
+
+    try {
+      const response = yield call(authService.login, email, password);
+      const token = response.token;
       yield put(login.success());
-      const token = 'token';
       if (remember) {
         yield call(Api.setCookie, 'token', token, {
           path: '/',
@@ -19,6 +19,9 @@ export function* loginFlow() {
         });
       }
       yield put(setToken({token: token}));
+    } catch(errorMessage) {
+      const error = new SubmissionError({_error: errorMessage});
+      yield put(login.failure(error));
     }
   }
 }
