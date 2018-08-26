@@ -5,17 +5,19 @@ import Api from 'base/utils';
 
 export function* loginFlow() {
   while (true) {
-    const { payload: { email, password }} = yield take(login.REQUEST);
+    const { payload: { email, password, remember }} = yield take(login.REQUEST);
     if (email !== 'test@test.pl' || password !== 'Password1') {
       const error = new SubmissionError({_error: 'Invalid email or password'});
       yield put(login.failure(error));
     } else {
       yield put(login.success());
       const token = 'token';
-      yield call(Api.setCookie, 'token', token, {
-        path: '/',
-        expires: new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000)
-      });
+      if (remember) {
+        yield call(Api.setCookie, 'token', token, {
+          path: '/',
+          expires: new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000)
+        });
+      }
       yield put(setToken({token: token}));
     }
   }

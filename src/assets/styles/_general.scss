@@ -4,10 +4,16 @@ html, body, #root {
 }
 
 body {
-  font-family: Raleway, sans-serif;
-  color: black;
+  font-family: 'Montserrat', sans-serif;
+  color: $black;
   font-size: $spacer;
   font-weight: $font-weight-normal;
+}
+
+button,
+input,
+label {
+  font-family: 'Montserrat', sans-serif;
 }
 
 .app-btn {

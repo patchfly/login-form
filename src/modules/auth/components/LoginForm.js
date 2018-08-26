@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { validateEmail, validatePassword, required } from 'common/forms/utils/fieldsValidation';
 import Input from 'common/forms/components/Input';
+import Checkbox from 'common/forms/components/Checkbox';
 import { login } from '../redux/actions';
 
 const LoginForm = ({ handleSubmit, submitFcn = login, error }) => {
@@ -19,6 +20,7 @@ const LoginForm = ({ handleSubmit, submitFcn = login, error }) => {
           <div className="form-error">
             {error}
           </div>
+          <Field name="remember" component={Checkbox} label="Remember me" />
           <button className="app-btn login-btn" type="submit">
             Login
           </button>

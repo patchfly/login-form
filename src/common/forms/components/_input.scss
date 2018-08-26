@@ -42,6 +42,7 @@
 .form-input-error,
 .form-error {
   color: $error-color;
+  font-weight: $font-weight-bold;
   height: 2 * $spacer;
 }
 
